@@ -7,14 +7,18 @@ standard_deck = [
   "SA","S2","S3","S4","S5","S6","S7","S8","S9","S10","SJack","SQueen","SKing"
 ]
 
+left_deck_player = standard_deck
+left_deck_dealer = standard_deck
+
 # win counter
 player_wins = 0
 dealer_wins = 0
 
-def new_game():
+def reset_decks():
   left_deck_player = standard_deck
   left_deck_dealer = standard_deck
-  
+
+reset_decks()
 while winner = 0:
   
   # if players cards value sum exceed 21 he lost
