@@ -1,10 +1,12 @@
 # py blackjack
 
+# chip system ...
+
 standard_deck = [
-  "CA","C2","C3","C4","C5","C6","C7","C8","C9","C10","CJack","CQueen","CKing",
-  "DA","D2","D3","D4","D5","D6","D7","D8","D9","D10","DJack","DQueen","DKing",
-  "HA","H2","H3","H4","H5","H6","H7","H8","H9","H10","HJack","HQueen","HKing",
-  "SA","S2","S3","S4","S5","S6","S7","S8","S9","S10","SJack","SQueen","SKing"
+  "CAce","C2","C3","C4","C5","C6","C7","C8","C9","C10","CJack","CQueen","CKing",
+  "DAce","D2","D3","D4","D5","D6","D7","D8","D9","D10","DJack","DQueen","DKing",
+  "HAce","H2","H3","H4","H5","H6","H7","H8","H9","H10","HJack","HQueen","HKing",
+  "SAce","S2","S3","S4","S5","S6","S7","S8","S9","S10","SJack","SQueen","SKing"
 ]
 
 left_deck_player = standard_deck
@@ -20,7 +22,20 @@ def reset_decks():
 
 reset_decks()
 while winner = 0:
+  #first cards
+  new_card("dealer")
+  new_card("player")
   
+  #output player cards
+  print("Your cards: \r")
+  for card in player_cards:
+    print(card + " \r")
+  print("")
+  print("Sum: " + value(player_cards)
+  
+  # player input to stand / hit / double
+  choice = input("stand/hit/double > ")
+        
   # if players cards value sum exceed 21 he lost
   if value(player_cards) > 21:
     winner = "dealer"
@@ -41,6 +56,25 @@ def new_card(side):
   if side == "dealer":
     new_card = left_deck_dealer[random(0,left_deck_dealer.len()]
     left_deck_dealer.remove(new_card)
-  else if side == "player":
+    dealer_cards.add(new_card)
+                                       
+  elif side == "player":
     new_card = left_deck_player[random(0,left_deck_player.len()]
     left_deck_player.remove(new_card)
+    player_cards.add(new_card)
+
+def value(list):
+  value = 0
+  for card in list:
+    card = card[1:]
+    if card == "Ace":
+      value = value + 1             
+    elif card == "Jack":
+      value = value + 10             
+    elif card == "Queen":
+      value = value + 10             
+    elif card == "King":
+      value = value + 10
+    else:
+      value = value + int(card)
+                                       
